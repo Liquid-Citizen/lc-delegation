@@ -1,0 +1,27 @@
+{
+  "name": "lc-delegation",
+  "version": "0.0.0",
+  "description": "The delegation component of Liquid Citizen",
+  "homepage": "https://github.com/Liquid-Citizen/lc-delegation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Liquid-Citizen/lc-delegation.git"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Liquid Citizen",
+  "license": "Unlicense",
+  "dependencies": {
+    "cors": "^2.8.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "express-jwt": "^5.1.0",
+    "express-jwt-authz": "^1.0.0",
+    "jwks-rsa": "^1.1.1",
+    "mongodb": "^3.0.1",
+    "mongoose": "^4.13.9"
+  }
+}
