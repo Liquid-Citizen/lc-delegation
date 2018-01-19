@@ -7,6 +7,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const DelegationTokenModel = require('models/delegationTokenModel');
+
 require('dotenv').config();
 
 if (!process.env.AUTH0_DOMAIN || !process.env.AUTH0_AUDIENCE) {
@@ -34,7 +36,18 @@ const checkJwt = jwt({
 
 const checkScopes = jwtAuthz(['read:messages']);
 
-mongoose.connect('mongodb://localhost/voting');
+mongoose.connect('${process.env.MONGODB_PATH}', {
+    useMongoClient: true
+});
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
+
+
+
+
 
 app.get('/api/public', function(req, res) {
   res.json({
